@@ -7,5 +7,23 @@
 module.exports = {
   theme: {},
   variants: {},
-  plugins: []
-}
+  plugins: [],
+  purge: {
+    enabled: process.env.NODE_ENV === 'production',
+    content: [
+      './public/**/*.html',
+      './src/**/*.vue',
+      './src/**/**/*.vue'
+    ],
+    options: {
+      whitelistPatterns: [
+        /^code/,
+        /^pre/,
+        /^token/,
+        /^(?!(|.*?:)cursor-move).+-move$/,
+        /-(leave|enter|appear)(|-(to|from|active))$/,
+        /^router-link(|-exact)-active$/
+      ]
+    }
+  }
+};
