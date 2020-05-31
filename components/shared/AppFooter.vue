@@ -1,6 +1,6 @@
 <template>
-  <footer>
-    footer
+  <footer class="text-xs text-center">
+    &copy; copyright statement
   </footer>
 </template>
 
@@ -10,6 +10,5 @@ export default {
 };
 </script>
 
-<style lang="scss">
-
+<style lang="stylus">
 </style>

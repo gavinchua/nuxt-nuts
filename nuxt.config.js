@@ -1,3 +1,4 @@
+import { API_ROOT, I18N } from './config';
 
 export default {
   mode: 'universal',
@@ -7,18 +8,33 @@ export default {
   head: {
     title: process.env.npm_package_name || '',
     meta: [
-      { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: process.env.npm_package_description || '' }
+      {
+        charset: 'utf-8'
+      },
+      {
+        name: 'viewport',
+        content: 'width=device-width, initial-scale=1'
+      },
+      {
+        hid: 'description',
+        name: 'description',
+        content: process.env.npm_package_description || ''
+      }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      {
+        rel: 'icon',
+        type: 'image/x-icon',
+        href: '/favicon.ico'
+      }
     ]
   },
   /*
   ** Customize the progress-bar color
   */
-  loading: { color: '#fff' },
+  loading: {
+    color: '#000'
+  },
   /*
   ** Global CSS
   */
@@ -43,10 +59,17 @@ export default {
   */
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
-    '@nuxtjs/axios',
+    [
+      '@nuxtjs/axios',
+      {
+        baseURL: API_ROOT
+      }
+    ],
     '@nuxtjs/pwa',
     // Doc: https://github.com/nuxt-community/dotenv-module
-    '@nuxtjs/dotenv'
+    '@nuxtjs/dotenv',
+    // https://nuxt-community.github.io/nuxt-i18n/setup.html
+    ['nuxt-i18n', I18N]
   ],
   /*
   ** Axios module configuration

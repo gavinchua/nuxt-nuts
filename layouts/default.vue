@@ -1,7 +1,9 @@
 <template>
-  <div>
+  <div class="container m-auto ">
     <AppHeader />
-    <nuxt />
+    <main>
+      <nuxt />
+    </main>
     <AppFooter />
   </div>
 </template>
@@ -18,6 +20,17 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="stylus">
+body {
+  @apply antialiased font-sans font-normal text-base text-black leading-normal relative
 
+  main {
+    @apply relative
+    min-height 80vh
+  }
+}
+
+h1 {
+  @apply font-bold text-3xl text-center
+}
 </style>
